@@ -1,0 +1,47 @@
+@import '~/node_modules/bootstrap/scss/bootstrap.scss';
+@import 'variables';
+
+/* COMMON */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* HEADER */
+
+header {
+    height: 60px;
+    background-color: $headerColor;
+    .logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        img {
+            display: inline-block;
+            width: 35px;
+            aspect-ratio: 1/1;
+            margin-left: calc((60px - 35px) / 2);
+        }
+    }
+}
+
+
+/* MAIN */
+
+main {
+    height: calc(100vh - 60px);
+    background-color: $bgColor;
+}

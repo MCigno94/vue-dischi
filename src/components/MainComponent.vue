@@ -1,9 +1,9 @@
 <template>
     <main>
-        <div class="container_MC">
+        <div class="container">
 
             <section class="discs" v-if="!loading">
-                <div class="row row-cols-2 row-cols-md-3 row-cols-xxl-5 ">
+                <div class="row row-cols-2 row-cols-md-3 row-cols-xxl-5">
                     <DiscItem :disc="disc" v-for="(disc, index) in discs" :key="index" />
                 </div>
                 <!-- /.row -->

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import SiteHeader from './components/HeaderComponent.vue'
-import SiteMain from './components/MainComponent.vue'
+import SiteHeader from '@/components/HeaderComponent.vue'
+import SiteMain from '@/components/MainComponent.vue'
 
 export default {
   name: 'App',

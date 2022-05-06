@@ -4,7 +4,10 @@
 
             <section class="discs" v-if="!loading">
                 <div class="row row-cols-2 row-cols-md-3 row-cols-xxl-5">
-                    <DiscItem :disc="disc" v-for="(disc, index) in discs" :key="index" />
+                    <DiscItem 
+                    :disc="disc" 
+                    v-for="(disc, index) in filteredDisc" 
+                    :key="index" />
                 </div>
                 <!-- /.row -->
             </section>
@@ -20,7 +23,8 @@
 
 <script>
 import axios from "axios";
-import DiscItem from '@/components/DiscItemComponent.vue'
+import DiscItem from '@/components/DiscItemComponent.vue';
+import state from '@/state.js';
 
 export default {
     name: 'MainComponent',
@@ -48,9 +52,16 @@ export default {
             })
             .catch(error => {
                 console.log(error);
-                this.error = `Sorry There is a problem! ${error}`
+                this.error = `Sorry There is a problem! ${error.message}`
             });
         }   
+    },
+    computed: {
+        filteredDisc(){
+            return this.discs.filter(disc => {
+                return disc.genre.toLowerCase().includes(state.selectOption.toLowerCase())
+            })
+        }
     },
     mounted(){
         this.callApi()

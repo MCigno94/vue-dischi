@@ -2,10 +2,10 @@
 
     <div class="genre cols h-100">
         <select class="genre_form text-white h-100 rounded-3" id="floatingSelectGrid" aria-label="Floating label select example"
-        @submit.prevent="$emit('seleziona')"
         :value= "selectOption"
         @input="$emit('input', $event.target.value)"
         @click="$emit('seleziona', selectOption)"
+        
         >
             <option selected>Seleziona il genere musicale</option>
             <option value="rock">Rock</option>

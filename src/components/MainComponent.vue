@@ -63,6 +63,8 @@ export default {
                     return disc.author.toLowerCase().includes(state.selectOptionArtist.toLowerCase())
                 } else if (state.selectOptionGenre) {
                     return disc.genre.toLowerCase().includes(state.selectOptionGenre.toLowerCase())
+                } else {
+                    return disc
                 }
                 })
         }

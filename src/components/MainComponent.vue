@@ -58,10 +58,16 @@ export default {
     },
     computed: {
         filteredDisc(){
+
             return this.discs.filter(disc => {
-                return disc.genre.toLowerCase().includes(state.selectOption.toLowerCase())
-            })
+                if(disc.author){
+                    return disc.author.toLowerCase().includes(state.selectOptionArtist.toLowerCase())
+                } else if (disc.genre) {
+                    return disc.genre.toLowerCase().includes(state.selectOptionGenre.toLowerCase())
+                }
+                })
         }
+
     },
     mounted(){
         this.callApi()

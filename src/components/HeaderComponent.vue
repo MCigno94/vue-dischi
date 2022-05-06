@@ -7,19 +7,11 @@
         </div>
         <!-- /.logo -->
         <div class="cols h-100">
-              <div class="row row-cols-2 align-items-center text-end h-100 p-1 pe-3">
-    <div class="artist cols h-100">
-        <select class="artist_form text-white h-100 rounded-3" id="floatingSelectGrid" aria-label="Floating label select example">
-            <option selected>Seleziona l'artista</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-    </div>
-    <!-- /.artist -->
-    <SelectBox v-model="selectOption" @seleziona="select"/>
-    </div>
-    <!-- /.row -->
+          <div class="row row-cols-2 align-items-center text-end h-100 p-1 pe-3">
+            <SelectBoxArtist v-model="selectOptionArtist" @seleziona="selectArtist"/>
+            <SelectBoxGenre v-model="selectOptionGenre" @seleziona="selectGenre"/>
+          </div>
+          <!-- /.row -->
         </div>
         <!-- /.cols -->
       </div>
@@ -30,24 +22,33 @@
 </template>
 
 <script>
-import SelectBox from '@/components/SelectBoxGenre.vue';
+import SelectBoxGenre from '@/components/SelectBoxGenre.vue';
+import SelectBoxArtist from '@/components/SelectBoxArtist.vue';
 import state from '@/state.js';
 
 export default {
   name: 'HeaderComponent',
     components: {
-    SelectBox
+    SelectBoxGenre,
+    SelectBoxArtist
   },
     data(){
     return {
-      selectOption: ''
+      selectOptionGenre: '',
+      selectOptionArtist: ''
     }
   },
   methods: {
-    select() {
-      console.log('Searching...');
-      console.log(this.selectOption);
-      state.selectOption = this.selectOption;
+    selectGenre() {
+      console.log('SearchingGenre...');
+      console.log(this.selectOptionGenre);
+      state.selectOptionGenre = this.selectOptionGenre;
+      console.log(state);
+    },
+    selectArtist() {
+      console.log('SearchingArtist...');
+      console.log(this.selectOptionArtist);
+      state.selectOptionArtist = this.selectOptionArtist;
       console.log(state);
     }
   }

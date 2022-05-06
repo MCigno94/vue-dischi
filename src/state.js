@@ -1,7 +1,8 @@
 import Vue from 'vue';
 
 const state = Vue.observable({
-    selectOption: ''
+    selectOptionGenre: '',
+    selectOptionArtist: ''
 })
 
 export default state

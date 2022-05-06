@@ -48,7 +48,6 @@ export default {
                 console.log(response);
                 this.discs = response.data.response;
                 this.loading = false;
-
             })
             .catch(error => {
                 console.log(error);
@@ -60,9 +59,9 @@ export default {
         filteredDisc(){
 
             return this.discs.filter(disc => {
-                if(disc.author){
+                if(state.selectOptionArtist){
                     return disc.author.toLowerCase().includes(state.selectOptionArtist.toLowerCase())
-                } else if (disc.genre) {
+                } else if (state.selectOptionGenre) {
                     return disc.genre.toLowerCase().includes(state.selectOptionGenre.toLowerCase())
                 }
                 })

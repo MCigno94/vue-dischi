@@ -1,11 +1,11 @@
 <template>
-    <div class="artist cols h-100">
-        <select class="artist_form text-white h-100 rounded-3" id="floatingSelectGrid" aria-label="Floating label select example"
+    <div class="artist cols h-100 text-white">
+        <label for="floatingSelectGrid">Seleziona l'artista</label>
+        <select class="artist_form h-100 text-white rounded-3" id="floatingSelectGrid" aria-label="Floating label select example"
         :value= "selectOptionArtist"
         @input="$emit('input', $event.target.value)"
         @click="$emit('seleziona', selectOptionArtist)"
         >
-            <option selected>Seleziona l'artista</option>
             <option value="metallica">Metallica</option>
             <option value="dave Weckl">Dave Weckl</option>
             <option value="michael Jacjson">Michael Jacjson</option>
